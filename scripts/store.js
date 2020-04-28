@@ -7,8 +7,7 @@ const items = [];
 const hideCheckedItems = false;
 
 function findById(id){
-   const item = items.find(id);
-   return item;
+   return this.items.find(currentItem => currentItem.id === id);
 }
 function addItem(name){
     try{
@@ -38,6 +37,10 @@ function findAndDelete(id){
     this.item = this.items.filter(currentItem => currentItem.id !== id);
 }
 
+function toggleCheckedFilter() {
+    this.check = !this.check;
+
+}
 
 export default {
     items,
@@ -46,5 +49,6 @@ export default {
     addItem,
     findAndToggleChecked,
     findAndUpdateName,
-    findAndDelete
+    findAndDelete,
+    toggleCheckedFilter
 };
